@@ -15,7 +15,7 @@ body {
 }
 
 .container {
-    min-width: 25vw;
+    min-width: 35vw;
     padding: 1rem;
     border-radius: 0.5rem;
     background-color: rgb(207, 207, 207);
@@ -43,15 +43,19 @@ body {
 }
 
 #street::before {
-    content: 'País:';
+    content: 'Calle:';
 }
 
 #postalCode::before {
-    content: 'País:';
+    content: 'CodePostal:';
 }
 
 #houseNumbe::before {
-    content: 'País:';
+    content: 'N°Casa:';
+}
+
+#label::before {
+    content: 'Etiqueta:';
 }
 
 ::before {

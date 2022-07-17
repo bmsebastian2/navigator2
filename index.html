@@ -26,6 +26,7 @@
         <p id="postalCode"></p>
         <p id="houseNumber"></p>
         <hr>
+        <p id="label"></p>
 
     </div>
 
@@ -38,6 +39,7 @@
         const distrito = document.getElementById("distrito");
         const cit = document.getElementById("city");
         const country = document.getElementById("countryName");
+        const etiqueta = document.getElementById("label");
 
         let stree_t = document.getElementById("street");
         let postalCod_e = document.getElementById("postalCode");
@@ -78,7 +80,7 @@
                     .then((resp) => resp.json())
                     .then((data) => {
                         // console.log(data.items[0].address.district);
-                        const { houseNumber, postalCode, street, countryName, city, district } =
+                        const { label, houseNumber, postalCode, street, countryName, city, district } =
                             data.items[0].address;
 
                         country.innerText = countryName;
@@ -87,6 +89,7 @@
                         stree_t.innerText = street;
                         postalCod_e.innerText = postalCode;
                         houseNumbe_r = houseNumber;
+                        etiqueta.innerText = label
                     })
                     .catch((err) => console.log("Solicitud fallida: " + err));
             } else alert("Debe llenat latitud y longitud");
