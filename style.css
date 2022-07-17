@@ -21,6 +21,17 @@ body {
     background-color: rgb(207, 207, 207);
 }
 
+.main {
+    display: flex;
+}
+
+.datos {
+    flex: 1;
+}
+
+.boton {
+    flex: 1;
+}
 
 #latitud::before {
     content: 'Latitud:';

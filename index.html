@@ -18,13 +18,24 @@
         <p id="longitud"></p>
         <p id="error"></p>
         <hr>
-        <button id="botonUbicacion">UBICACION</button>
-        <p id='countryName'></p>
-        <p id='city'></p>
-        <p id='distrito'></p>
-        <p id="street"></p>
-        <p id="postalCode"></p>
-        <p id="houseNumber"></p>
+        <div class="main">
+            <div class="datos">
+                <button id="botonUbicacion">UBICACION</button>
+                <p id='countryName'></p>
+                <p id='city'></p>
+                <p id='distrito'></p>
+                <p id="street"></p>
+                <p id="postalCode"></p>
+                <p id="houseNumber"></p>
+            </div>
+            <div class="boton">
+                <button id="googleMap">BuscarGoogleMap</button>
+            </div>
+        </div>
+
+
+
+
         <hr>
         <p id="label"></p>
 
@@ -40,10 +51,13 @@
         const cit = document.getElementById("city");
         const country = document.getElementById("countryName");
         const etiqueta = document.getElementById("label");
+        const googleMap = document.getElementById('googleMap')
 
         let stree_t = document.getElementById("street");
         let postalCod_e = document.getElementById("postalCode");
         let houseNumbe_r = document.getElementById("houseNumber");
+
+        let distritoGeneral = ''
 
         const opciones = {
             enableHighAccuracy: true,
@@ -90,12 +104,24 @@
                         postalCod_e.innerText = postalCode;
                         houseNumbe_r = houseNumber;
                         etiqueta.innerText = label
+
+                        distritoGeneral = district
                     })
                     .catch((err) => console.log("Solicitud fallida: " + err));
             } else alert("Debe llenat latitud y longitud");
         };
         localizar.addEventListener("click", getLocation);
         botonUbicacion.addEventListener("click", getUbicacion);
+
+        const abrirGoogle = () => {
+            console.log('abrir')
+
+            var win = window.open(`https://www.google.com/maps/place/${distritoGeneral}`, '_blank');
+
+            win.focus();
+
+        }
+        googleMap.addEventListener('click', abrirGoogle)
 
     </script>
 </body>
